@@ -2,6 +2,8 @@ $RepoName = Read-Host -Prompt 'Input Repo Name'
 Set-Clipboard $RepoName
 $TemplatePath = $PSScriptRoot
 $RepoPath = "../$RepoName"
+
+
 New-Item -Path $RepoPath -ItemType Directory
 
 $files = Get-ChildItem -Path $TemplatePath -File
@@ -18,37 +20,24 @@ foreach($folder in $folders)
     Copy-Item -Path $TemplatePath/$folder -Destination $RepoPath -Recurse -Container
 }
 
-Remove-Item -Path $RepoPath/.git -Recurse
+
 Remove-Item -Path $RepoPath/new.ps1
 Remove-Item -Path $RepoPath/new.bat
 Remove-Item -Path $RepoPath/readme.md
 Out-File -FilePath $TemplatePath/README.md -InputObject "# $RepoName"
 
+
 explorer "https://github.com/new"
 pause
 
+
 # create repo
+Set-Location -Path $RepoPath
 git init
 git add .
 git commit -m "first commit"
 git remote add origin https://github.com/grahamcrowell/$RepoName.git
 git push -u origin master
 
-# # copy template files
-# $TemplatePath = $PSScriptRoot
-# md .vscode
-# # cd .vscode
-# # copy "%~dp0/.vscode/*.*" "."
-# echo %~dp0
-# echo %cd%
-# copy %~dp0vscode/*.* "%cd%/.vscode"
-# dir
-# # cd "../VS-Code-Cpp-Template"
 
-
-# # git add .
-# # git commit -m"commit comment"
-# # git push -u origin master
-# # git pull origin master
-
-
+# TODO: open folder with new instance of vs-code
