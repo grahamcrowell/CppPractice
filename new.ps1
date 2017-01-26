@@ -22,7 +22,7 @@ Remove-Item -Path $RepoPath/.git -ErrorAction SilentlyContinue
 Remove-Item -Path $RepoPath/new.ps1 -ErrorAction SilentlyContinue
 Remove-Item -Path $RepoPath/new.bat -ErrorAction SilentlyContinue
 Remove-Item -Path $RepoPath/readme.md -ErrorAction SilentlyContinue
-Out-File -FilePath $TemplatePath/README.md "# $RepoName"
+Out-File -FilePath $TemplatePath/README.md -InputObject "# $RepoName"
 
 explorer "https://github.com/new"
 pause
