@@ -39,5 +39,4 @@ git commit -m "first commit"
 git remote add origin https://github.com/grahamcrowell/$RepoName.git
 git push -u origin master
 
-
-# TODO: open folder with new instance of vs-code
+code $RepoPath
