@@ -24,7 +24,7 @@ foreach($folder in $folders)
 Remove-Item -Path $RepoPath/new.ps1
 Remove-Item -Path $RepoPath/new.bat
 Remove-Item -Path $RepoPath/readme.md
-Out-File -FilePath $TemplatePath/README.md -InputObject "# $RepoName"
+Out-File -FilePath $RepoPath/README.md -InputObject "# $RepoName"
 
 
 explorer "https://github.com/new"
