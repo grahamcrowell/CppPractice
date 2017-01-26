@@ -18,10 +18,10 @@ foreach($folder in $folders)
     Copy-Item -Path $TemplatePath/$folder -Destination $RepoPath -Recurse -Container
 }
 
-Remove-Item -Path $RepoPath/.git -ErrorAction SilentlyContinue
-Remove-Item -Path $RepoPath/new.ps1 -ErrorAction SilentlyContinue
-Remove-Item -Path $RepoPath/new.bat -ErrorAction SilentlyContinue
-Remove-Item -Path $RepoPath/readme.md -ErrorAction SilentlyContinue
+Remove-Item -Path $RepoPath/.git -Recurse
+Remove-Item -Path $RepoPath/new.ps1
+Remove-Item -Path $RepoPath/new.bat
+Remove-Item -Path $RepoPath/readme.md
 Out-File -FilePath $TemplatePath/README.md -InputObject "# $RepoName"
 
 explorer "https://github.com/new"
