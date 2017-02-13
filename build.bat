@@ -16,3 +16,4 @@ cl.exe %compilerflags% main.cpp /link %linkerflags%
 echo RUNNING...
 start main.exe
 main.exe < stdin.txt
+call main.exe < stdin.txt
