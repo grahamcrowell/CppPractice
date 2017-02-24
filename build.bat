@@ -1,3 +1,5 @@
+rem CTLR + SHIFT + B to build
+
 @echo off
 
 REM delete old files (force a full recompile each build)

@@ -1,3 +1,4 @@
+// CTLR + SHIFT + B to build
 #include <iostream>
 
 int main()
